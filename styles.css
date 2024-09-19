@@ -9,16 +9,24 @@ body {
   --gap: 10px;
   --padding: 15px;
   --borderRadius: 100%;
-  --size: 10rem; 
+  --size: 10rem;
+  --green: #8ac926;
+  --red: #ff595e;
+  --yellow: #ffca3a;
+  --blue: #1982c4;
 }
 
-h1{
-    text-align: center;
+h1 {
+  text-align: center;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
-h2{
-    font-size: 6rem;
-    animation: floating 3s infinite ease-in-out;
+h2 {
+  margin: 0;
+  font-size: 6rem;
+  animation: floating 3s infinite ease-in-out;
 }
 
 .container {
@@ -28,7 +36,7 @@ h2{
 }
 
 .wrapper {
-  position: absolute;
+  position: absolute; 
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
@@ -36,6 +44,8 @@ h2{
 }
 
 .tile-container {
+    margin-left: auto;
+    margin-right: auto;
   background-color: black;
   width: fit-content;
   display: grid;
@@ -48,40 +58,40 @@ h2{
 }
 
 .green {
-  background-color: green;
+  background-color: var(--green);
   height: var(--size);
   width: var(--size);
   border-top-left-radius: var(--borderRadius);
 }
 
 .red {
-  background-color: red;
+  background-color: var(--red);
   height: var(--size);
   width: var(--size);
   border-top-right-radius: var(--borderRadius);
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: var(--yellow);
   height: var(--size);
   width: var(--size);
   border-bottom-left-radius: var(--borderRadius);
 }
 
 .blue {
-  background-color: blue;
+  background-color: var(--blue);
   height: var(--size);
   width: var(--size);
   border-bottom-right-radius: var(--borderRadius);
 }
 
-.center { 
-  text-align: center; 
+.center {
+  text-align: center;
   align-content: center;
   width: var(--size);
   height: var(--size);
   background-color: white;
-  border: var(--gap) solid black ;
+  border: var(--gap) solid black;
   position: absolute;
   border-radius: var(--borderRadius);
   top: 50%;
@@ -90,9 +100,14 @@ h2{
   transform: translate(-50%, -50%);
 }
 
-
 @keyframes floating {
-    0% { transform: translate(0,  -15px); }
-    50%  { transform: translate(0, 0px); }
-    100%   { transform: translate(0, -15px); }    
+  0% {
+    transform: translate(0, -15px);
+  }
+  50% {
+    transform: translate(0, 0px);
+  }
+  100% {
+    transform: translate(0, -15px);
+  }
 }
