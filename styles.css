@@ -71,7 +71,7 @@ h2 {
   gap: var(--gap);
   padding: var(--padding);
   border-radius: 50%;
-  animation: spin 30s infinite linear;
+  animation: '';
 }
 
 .green {
@@ -180,6 +180,7 @@ h2 {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  animation: '';
 }
 
 .invisible {
@@ -202,11 +203,28 @@ h2 {
   }
 }
 
-/* @keyframes spin {
+@keyframes spin {
     from {
         transform:rotate(0deg);
     }
     to {
         transform:rotate(360deg);
     }
-} */
+}
+
+
+
+@keyframes upDown {
+    0% {
+      transform: translate(0, -5rem);
+    }
+    50% {
+      transform: translate(0, 0px);
+    }
+    100% {
+      transform: translate(0, -5rem);
+    }
+  }
+  
+
+ 
