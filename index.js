@@ -22,7 +22,7 @@ let start = false;
 // initializing the game by checking if there are any keystrokes
 // detected from the document. it then checks if the value of start
 // is false, if it is then set start to true then calling the playing() function
-$(document).on(["keypress", 'tap'], function () {
+$(document).on(["keypress tap"], function () {
   if (!start) {
     $("h1").hide();
     $("h2").html(`${level}`).css({ animation: "0s" });
