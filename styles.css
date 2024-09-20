@@ -3,6 +3,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
+  background-color: #001327;
 }
 
 :root {
@@ -14,6 +15,15 @@ body {
   --red: #ff595e;
   --yellow: #ffca3a;
   --blue: #1982c4;
+  --greenShow: #9dff00;
+  --redShow: #ff0008;
+  --yellowShow: #ffbb00;
+  --blueShow: #009dff;
+  --greenClicked: #d0fd87;
+  --redClicked: #ff8e92;
+  --yellowClicked: #ffde85;
+  --blueClicked: #8ad2ff;
+  --black: #111111;
 }
 
 h1 {
@@ -21,22 +31,28 @@ h1 {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   font-style: normal;
+  color: var(--yellow);
 }
 
 h2 {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--black);
   margin: 0;
-  font-size: 6rem;
+  font-size: 4rem;
   animation: floating 3s infinite ease-in-out;
 }
 
 .container {
+  background-color: #001327;
   position: relative;
   width: 100%;
   height: 100%;
 }
 
 .wrapper {
-  position: absolute; 
+  position: absolute;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
@@ -44,9 +60,9 @@ h2 {
 }
 
 .tile-container {
-    margin-left: auto;
-    margin-right: auto;
-  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--black);
   width: fit-content;
   display: grid;
   position: relative;
@@ -55,10 +71,27 @@ h2 {
   gap: var(--gap);
   padding: var(--padding);
   border-radius: 50%;
+  animation: spin 30s infinite linear;
 }
 
 .green {
   background-color: var(--green);
+  height: var(--size);
+  width: var(--size);
+  border-top-left-radius: var(--borderRadius);
+}
+
+.green-show {
+  background-color: var(--greenShow);
+  height: var(--size);
+  width: var(--size);
+  border-top-left-radius: var(--borderRadius);
+  -webkit-box-shadow: 0px 0px 37px 7px var(--greenShow);
+  -moz-box-shadow: 0px 0px 37px 7px var(--greenShow);
+  box-shadow: 0px 0px 37px 7px var(--greenShow);
+}
+.green-clicked {
+  background-color: var(--greenClicked);
   height: var(--size);
   width: var(--size);
   border-top-left-radius: var(--borderRadius);
@@ -71,8 +104,40 @@ h2 {
   border-top-right-radius: var(--borderRadius);
 }
 
+.red-show {
+  background-color: var(--redShow);
+  height: var(--size);
+  width: var(--size);
+  border-top-right-radius: var(--borderRadius);
+  -webkit-box-shadow: 0px 0px 37px 7px var(--redShow);
+  -moz-box-shadow: 0px 0px 37px 7px var(--redShow);
+  box-shadow: 0px 0px 37px 7px var(--redShow);
+}
+.red-clicked {
+  background-color: var(--redClicked);
+  height: var(--size);
+  width: var(--size);
+  border-top-right-radius: var(--borderRadius);
+}
+
 .yellow {
   background-color: var(--yellow);
+  height: var(--size);
+  width: var(--size);
+  border-bottom-left-radius: var(--borderRadius);
+}
+
+.yellow-show {
+  background-color: var(--yellowShow);
+  height: var(--size);
+  width: var(--size);
+  border-bottom-left-radius: var(--borderRadius);
+  -webkit-box-shadow: 0px 0px 37px 7px var(--yellowShow);
+  -moz-box-shadow: 0px 0px 37px 7px var(--yellowShow);
+  box-shadow: 0px 0px 37px 7px var(--yellowShow);
+}
+.yellow-clicked {
+  background-color: var(--yellowClicked);
   height: var(--size);
   width: var(--size);
   border-bottom-left-radius: var(--borderRadius);
@@ -85,19 +150,44 @@ h2 {
   border-bottom-right-radius: var(--borderRadius);
 }
 
+.blue-show {
+  background-color: var(--blueShow);
+  height: var(--size);
+  width: var(--size);
+  border-bottom-right-radius: var(--borderRadius);
+  -webkit-box-shadow: 0px 0px 37px 7px var(--blueShow);
+  -moz-box-shadow: 0px 0px 37px 7px var(--blueShow);
+  box-shadow: 0px 0px 37px 7px var(--blueShow);
+}
+.blue-clicked {
+  background-color: var(--blueClicked);
+  height: var(--size);
+  width: var(--size);
+  border-bottom-right-radius: var(--borderRadius);
+}
+
 .center {
+  z-index: 99;
   text-align: center;
   align-content: center;
   width: var(--size);
   height: var(--size);
   background-color: white;
-  border: var(--gap) solid black;
+  border: var(--gap) solid var(--black);
   position: absolute;
   border-radius: var(--borderRadius);
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.invisible {
+  display: none;
+}
+
+.game-over {
+  background-color: var(--red) !important;
 }
 
 @keyframes floating {
@@ -111,3 +201,12 @@ h2 {
     transform: translate(0, -15px);
   }
 }
+
+/* @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+} */
