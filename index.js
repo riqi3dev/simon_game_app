@@ -44,7 +44,7 @@ $(document).on("keypress", function () {
 // 1.) storing the selectedColor, 2.) plays a sound of the corresponding color,
 // 3.) and does a glow effect once clicked
 //
-// after that, it checks whether the arrays of userPatterns, and 
+// after that, it checks whether the arrays of userPatterns, and
 $(".tile").on("click", function (event) {
   let selectedColor = event.target.className.split(" ")[2];
   userAnswer(selectedColor);
@@ -105,22 +105,19 @@ function restartGame() {
   level = 1;
   patterns = [];
   userPatterns = [];
-  $('.tile-container').css({animation: ''});
-  $("h1").hide();
+  $(".tile-container").css({ animation: "" });
 }
 
 function nextLevel() {
   level++;
   $("h2").html(`${level}`).css({ animation: "0s" });
 
-  if (level >= 10){
-    $('.tile-container').css({animation: 'spin 30s infinite linear'});
+  if (level >= 5) {
+    $(".tile-container").css({ animation: "spin 30s infinite linear" });
   }
-  if (level == 20){
-    
+  if (level == 10) {
     $("h1").show().html("Congratulations! 🎊");
   }
-   
 }
 
 function lightIndicator() {
