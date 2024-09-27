@@ -1,8 +1,5 @@
 // declaring the sound effects, colors and storing them in
-// an array for easy access
-//
-// created a regular expression to get character inputs from
-// keyboard
+// an array for easy access 
 //
 // declaring the default level, patterns, and user patterns
 let sfx = [
@@ -20,16 +17,18 @@ let userPatterns = [];
 let start = false;
 
 // initializing the game by checking if there are any keystrokes
-// detected from the document. it then checks if the value of start
-// is false, if it is then set start to true then calling the playing() function
-$(document).on("keypress", function () {
-  if (!start) {
+// detected from the document. if there are, start the game by calling
+// lightindicator and setting start value to true
+$(document).on("keydown", function () {
+  if (!start) { 
     $("h1").hide();
     $("h2").html(`${level}`).css({ animation: "0s" });
     start = true;
     lightIndicator();
   }
 });
+
+
 
 // for the meantime, it disables the keydown event and only
 // listens to events of "click" from .tile class
@@ -44,13 +43,17 @@ $(document).on("keypress", function () {
 // 1.) storing the selectedColor, 2.) plays a sound of the corresponding color,
 // 3.) and does a glow effect once clicked
 //
-// after that, it checks whether the arrays of userPatterns, and
 $(".tile").on("click", function (event) {
   let selectedColor = event.target.className.split(" ")[2];
   userAnswer(selectedColor);
   checkAnswer(userPatterns.length - 1);
 });
 
+
+// after that, it checks whether the arrays of userPatterns and the game patterns match 
+//
+// if then checks if the string matches. if the value is true then process to the
+// next level, reset the user patterns, and show another light value
 function checkAnswer(index) {
   if (userPatterns[index] === patterns[index]) {
     if (patterns.toString() === userPatterns.toString()) {
@@ -72,6 +75,8 @@ function checkAnswer(index) {
   }
 }
 
+// this is to play the user's event whenever
+// they click on a tile
 function userAnswer(selectedColor) {
   switch (selectedColor) {
     case "green":
@@ -100,6 +105,7 @@ function userAnswer(selectedColor) {
   }
 }
 
+// restart values to restart the game
 function restartGame() {
   start = false;
   level = 1;
@@ -108,6 +114,7 @@ function restartGame() {
   $(".tile-container").css({ animation: "" });
 }
 
+// increments the level by 1
 function nextLevel() {
   level++;
   $("h2").html(`${level}`).css({ animation: "0s" });
@@ -152,6 +159,7 @@ function lightIndicator() {
   }
 }
 
+// show the color according to the game
 function colorShow(index, color) {
   $(document).ready(function () {
     var effect = $(`.${index}`).addClass(`${color}-show`);
@@ -162,6 +170,7 @@ function colorShow(index, color) {
   });
 }
 
+// show the color when the user clicks on a tile
 function colorClicked(index, color) {
   $(document).ready(function () {
     var effect = $(`.${index}`).addClass(`${color}-clicked`);
